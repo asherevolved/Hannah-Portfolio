@@ -15,7 +15,7 @@ export default function HeroSection() {
             className="rounded-full mb-6 shadow-lg object-cover"
           />
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-headline">
-            Jane Doe
+            Hannah Esther Margaret
           </h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
             Creative full-stack developer with a passion for building beautiful and functional web applications. Experienced in React, Next.js, and modern web technologies. Let's build something amazing together.
