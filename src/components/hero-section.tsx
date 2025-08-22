@@ -56,7 +56,7 @@ export default function HeroSection() {
               height={200}
               className="rounded-full mb-6 shadow-lg object-cover"
               priority
-              data-ai-hint="woman smiling"
+              data-ai-hint="woman portrait"
             />
           </motion.div>
           <motion.h1
