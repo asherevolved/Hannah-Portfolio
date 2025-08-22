@@ -50,12 +50,13 @@ export default function HeroSection() {
             }}
           >
             <Image
-              src="/profile.jpg"
+              src="https://placehold.co/200x200.png"
               alt="Professional Photo"
               width={200}
               height={200}
               className="rounded-full mb-6 shadow-lg object-cover"
               priority
+              data-ai-hint="woman smiling"
             />
           </motion.div>
           <motion.h1
