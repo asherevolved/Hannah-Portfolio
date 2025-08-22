@@ -50,12 +50,13 @@ export default function HeroSection() {
             }}
           >
             <Image
-              src="https://firebasestudio-hosting.web.app/images/1723146435732.jpg"
+              src="https://placehold.co/200x200.png"
               alt="Professional Photo of Hannah Esther Margaret"
               width={200}
               height={200}
               className="rounded-full mb-6 shadow-lg object-cover"
               priority
+              data-ai-hint="woman smiling"
             />
           </motion.div>
           <motion.h1
