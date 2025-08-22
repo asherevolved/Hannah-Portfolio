@@ -50,7 +50,7 @@ export default function HeroSection() {
             }}
           >
             <Image
-              src="/hannah.jpg"
+              src="https://placehold.co/200x200.png"
               alt="Professional Photo"
               width={200}
               height={200}
