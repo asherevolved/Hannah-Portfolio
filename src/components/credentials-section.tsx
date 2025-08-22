@@ -1,5 +1,7 @@
+'use client';
 import { Card, CardContent } from '@/components/ui/card';
 import { GraduationCap, Award } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const education = [
   {
@@ -23,11 +25,40 @@ const certifications = [
 ];
 
 export default function CredentialsSection() {
+    const sectionVariants = {
+    offscreen: { opacity: 0 },
+    onscreen: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    offscreen: { y: 30, opacity: 0 },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        bounce: 0.3,
+        duration: 0.8,
+      },
+    },
+  };
+
   return (
     <section id="credentials" className="container py-12 md:py-24">
       <h2 className="text-3xl font-bold text-center mb-12 font-headline">Credentials</h2>
-      <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-        <div>
+      <motion.div
+        className="grid grid-cols-1 gap-12 md:grid-cols-2"
+        initial="offscreen"
+        whileInView="onscreen"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={sectionVariants}
+      >
+        <motion.div variants={itemVariants}>
           <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
             <GraduationCap className="text-primary" />
             Education
@@ -43,8 +74,8 @@ export default function CredentialsSection() {
               </Card>
             ))}
           </div>
-        </div>
-        <div>
+        </motion.div>
+        <motion.div variants={itemVariants}>
           <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
             <Award className="text-primary" />
             Certifications
@@ -60,8 +91,8 @@ export default function CredentialsSection() {
               </Card>
             ))}
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

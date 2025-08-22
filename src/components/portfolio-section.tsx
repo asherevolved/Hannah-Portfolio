@@ -1,5 +1,7 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight } from 'lucide-react';
@@ -40,40 +42,68 @@ const projects = [
 ];
 
 export default function PortfolioSection() {
+  const cardVariants = {
+    offscreen: {
+      y: 50,
+      opacity: 0,
+      rotateX: -45,
+    },
+    onscreen: {
+      y: 0,
+      opacity: 1,
+      rotateX: 0,
+      transition: {
+        type: 'spring',
+        bounce: 0.4,
+        duration: 0.8,
+      },
+    },
+  };
+
   return (
     <section id="portfolio" className="bg-secondary py-12 md:py-24">
-      <div className="container">
+      <div className="container" style={{ perspective: 2000 }}>
         <h2 className="text-3xl font-bold text-center mb-12 font-headline">My Work</h2>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          {projects.map((project) => (
-            <Link href={project.link} key={project.title} className="group block">
-              <Card className="overflow-hidden shadow-lg transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-xl">
-                <div className="relative h-64 w-full">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    style={{ objectFit: 'cover' }}
-                    className="transition-transform duration-300 ease-in-out group-hover:scale-110"
-                    data-ai-hint={project.aiHint}
-                  />
-                </div>
-                <CardHeader>
-                  <CardTitle className="flex justify-between items-center">
-                    {project.title}
-                    <ArrowRight className="h-5 w-5 text-muted-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:text-primary" />
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary">{tag}</Badge>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
+          {projects.map((project, i) => (
+            <motion.div
+              key={project.title}
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ staggerChildren: 0.5 }}
+            >
+              <motion.div variants={cardVariants}>
+                <Link href={project.link} className="group block">
+                  <Card className="overflow-hidden shadow-lg transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-xl">
+                    <div className="relative h-64 w-full">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        className="transition-transform duration-300 ease-in-out group-hover:scale-110"
+                        data-ai-hint={project.aiHint}
+                      />
+                    </div>
+                    <CardHeader>
+                      <CardTitle className="flex justify-between items-center">
+                        {project.title}
+                        <ArrowRight className="h-5 w-5 text-muted-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:text-primary" />
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground mb-4">{project.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                          <Badge key={tag} variant="secondary">{tag}</Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>
