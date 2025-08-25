@@ -50,7 +50,7 @@ export default function HeroSection() {
             }}
           >
             <Image
-              src="https://placehold.co/200x200.png"
+              src="/profile.jpg.jpeg"
               alt="Professional Photo of Hannah Esther Margaret"
               width={200}
               height={200}
@@ -69,7 +69,7 @@ export default function HeroSection() {
             variants={itemVariants}
             className="mt-4 text-lg text-muted-foreground max-w-2xl"
           >
-            Creative full-stack developer with a passion for building beautiful and functional web applications. Experienced in React, Next.js, and modern web technologies. Let's build something amazing together.
+Hi, I'm Hannah Esther Margaret. I specialize in content marketing, photography, and social media management. My passion lies in capturing real stories through the lens while helping brands grow with creative strategies and impactful visuals.
           </motion.p>
         </div>
       </motion.div>

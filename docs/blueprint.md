@@ -1,12 +1,11 @@
-# **App Name**: Persona
+# **Portfolio Blueprint**
 
 ## Core Features:
 
-- Hero Section: Hero section featuring a professional photo and a brief introduction.
-- Portfolio Showcase: Scrollable portfolio area displaying clickable project cards.
-- Certifications & Education: Dedicated section for listing certifications and educational background.
-- Contact & Social Links: Contact section with social media links for easy connection.
-- AI Intro Generator: AI-powered tool to generate alternative introductory statements based on qualifications.
+- Hero Section: Professional photo and introduction
+- Portfolio Showcase: Scrollable portfolio area with project cards
+- Certifications & Education: Detailed certifications and education background
+- Contact & Social Links: Easy access to social media and contact information
 
 ## Style Guidelines:
 

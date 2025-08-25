@@ -8,36 +8,36 @@ import { ArrowRight } from 'lucide-react';
 
 const projects = [
   {
-    title: 'Project Alpha',
-    description: 'An e-commerce platform built with Next.js and Stripe for seamless online shopping.',
-    image: 'https://placehold.co/600x400.png',
-    tags: ['Next.js', 'React', 'Stripe'],
+    title: 'Creative Photography',
+    description: 'Capturing stunning moments through the lens with a unique artistic perspective.',
+    image: '/WhatsApp Image 2025-08-21 at 10.44.57 PM (1).jpeg',
+    tags: ['Portrait', 'Landscape', 'Creative'],
     link: '#',
-    aiHint: 'ecommerce website',
+    aiHint: 'creative photography',
   },
   {
-    title: 'Project Beta',
-    description: 'A data visualization dashboard for tracking key business metrics in real-time.',
-    image: 'https://placehold.co/600x400.png',
-    tags: ['React', 'D3.js', 'Firebase'],
+    title: 'Brand Storytelling',
+    description: 'Helping brands tell their stories through compelling visual content and strategy.',
+    image: '/WhatsApp Image 2025-08-21 at 10.44.57 PM.jpeg',
+    tags: ['Branding', 'Content', 'Strategy'],
     link: '#',
-    aiHint: 'dashboard analytics',
+    aiHint: 'brand storytelling',
   },
   {
-    title: 'Project Gamma',
-    description: 'A mobile-first social networking app designed to connect like-minded individuals.',
-    image: 'https://placehold.co/600x400.png',
-    tags: ['React Native', 'GraphQL', 'MongoDB'],
+    title: 'Social Media Content',
+    description: 'Creating engaging content that drives engagement and builds communities.',
+    image: '/WhatsApp Image 2025-08-21 at 10.44.58 PM (1).jpeg',
+    tags: ['Social Media', 'Content Creation', 'Engagement'],
     link: '#',
-    aiHint: 'mobile application',
+    aiHint: 'social media content',
   },
   {
-    title: 'Project Delta',
-    description: 'An open-source library for creating accessible and customizable UI components.',
-    image: 'https://placehold.co/600x400.png',
-    tags: ['TypeScript', 'Storybook', 'Open Source'],
+    title: 'Visual Marketing',
+    description: 'Transforming ideas into powerful visual marketing campaigns that convert.',
+    image: '/WhatsApp Image 2025-08-21 at 10.44.58 PM.jpeg',
+    tags: ['Marketing', 'Campaigns', 'Visuals'],
     link: '#',
-    aiHint: 'code library',
+    aiHint: 'visual marketing',
   },
 ];
 
@@ -74,22 +74,29 @@ export default function PortfolioSection() {
               transition={{ staggerChildren: 0.5 }}
             >
               <motion.div variants={cardVariants}>
-                <Link href={project.link} className="group block">
+                <div className="group block cursor-pointer" onClick={(e) => {
+                  e.preventDefault();
+                  const card = e.currentTarget.closest('.group');
+                  if (card) {
+                    card.classList.add('animate-pulse');
+                    setTimeout(() => card.classList.remove('animate-pulse'), 300);
+                  }
+                }}>
                   <Card className="overflow-hidden shadow-lg transition-all duration-300 ease-in-out group-hover:scale-105 group-hover:shadow-xl">
-                    <div className="relative h-64 w-full">
+                    <div className="relative h-96 w-full overflow-hidden">
                       <Image
                         src={project.image}
                         alt={project.title}
                         fill
-                        style={{ objectFit: 'cover' }}
-                        className="transition-transform duration-300 ease-in-out group-hover:scale-110"
+                        style={{ objectFit: 'contain' }}
+                        className="transition-transform duration-300 ease-in-out group-hover:scale-105"
                         data-ai-hint={project.aiHint}
+                        priority
                       />
                     </div>
                     <CardHeader>
-                      <CardTitle className="flex justify-between items-center">
+                      <CardTitle>
                         {project.title}
-                        <ArrowRight className="h-5 w-5 text-muted-foreground transition-transform duration-300 group-hover:translate-x-1 group-hover:text-primary" />
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
@@ -101,7 +108,7 @@ export default function PortfolioSection() {
                       </div>
                     </CardContent>
                   </Card>
-                </Link>
+                </div>
               </motion.div>
             </motion.div>
           ))}

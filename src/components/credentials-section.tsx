@@ -5,22 +5,28 @@ import { motion } from 'framer-motion';
 
 const education = [
   {
-    degree: 'B.S. in Computer Science',
-    institution: 'University of Technology',
-    period: '2016 - 2020',
+    degree: 'I PU PCMB',
+    institution: '',
+    period: '',
+  },
+  {
+    degree: 'Student of Photography and Cinematography',
+    institution: 'RAVIVARMA ART INSTITUTE',
+    period: '',
+  },
+  {
+    degree: 'Member',
+    institution: 'MPA (Mysore Photographic Association)',
+    period: '',
   },
 ];
 
 const certifications = [
   {
-    name: 'Next.js Certified Developer',
-    issuer: 'Vercel',
-    date: 'Issued 2023',
-  },
-  {
-    name: 'AWS Certified Cloud Practitioner',
-    issuer: 'Amazon Web Services',
-    date: 'Issued 2022',
+    name: 'Certified Content Marketer',
+    issuer: 'Udemy',
+    date: 'Issued 2019',
+    imageUrl: '/Content Marketing Certification.jpeg'
   },
 ];
 
@@ -82,13 +88,21 @@ export default function CredentialsSection() {
           </h3>
           <div className="space-y-4">
             {certifications.map((cert, index) => (
-              <Card key={index} className="shadow-sm">
-                <CardContent className="p-6">
-                  <h4 className="font-bold">{cert.name}</h4>
-                  <p className="text-muted-foreground">{cert.issuer}</p>
-                  <p className="text-sm text-muted-foreground">{cert.date}</p>
-                </CardContent>
-              </Card>
+              <a 
+                key={index} 
+                href={cert.imageUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block hover:opacity-90 transition-opacity"
+              >
+                <Card className="shadow-sm hover:shadow-md transition-shadow">
+                  <CardContent className="p-6">
+                    <h4 className="font-bold">{cert.name}</h4>
+                    <p className="text-muted-foreground">{cert.issuer}</p>
+                    <p className="text-sm text-muted-foreground">{cert.date}</p>
+                  </CardContent>
+                </Card>
+              </a>
             ))}
           </div>
         </motion.div>

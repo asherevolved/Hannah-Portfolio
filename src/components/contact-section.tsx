@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 
@@ -43,22 +43,15 @@ export default function ContactSection() {
         >
           <motion.div variants={iconVariants}>
             <Button asChild variant="outline" size="icon">
-              <Link href="#" target="_blank" aria-label="GitHub">
-                <Github className="h-5 w-5" />
+              <Link href="https://www.instagram.com/hannahesthermargaret_1604" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <Instagram className="h-5 w-5" />
               </Link>
             </Button>
           </motion.div>
           <motion.div variants={iconVariants}>
             <Button asChild variant="outline" size="icon">
-              <Link href="#" target="_blank" aria-label="LinkedIn">
-                <Linkedin className="h-5 w-5" />
-              </Link>
-            </Button>
-          </motion.div>
-          <motion.div variants={iconVariants}>
-            <Button asChild variant="outline" size="icon">
-              <Link href="#" target="_blank" aria-label="Twitter">
-                <Twitter className="h-5 w-5" />
+              <Link href="mailto:hannahmargaret805@gmail.com" aria-label="Email">
+                <Mail className="h-5 w-5" />
               </Link>
             </Button>
           </motion.div>
